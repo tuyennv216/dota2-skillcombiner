@@ -1,0 +1,25 @@
+[data-area="list-hero"] > div.row {
+  margin-bottom: 18px;
+}
+
+[data-area="list-hero"] > div.row > .spec-one {
+  margin-bottom: 12px;
+}
+
+[data-area="list-hero"] [data-area="hero-types"] {
+  overflow-y: auto;
+  height: calc(100vh - 160px);
+}
+
+[data-area="list-hero"] > div.row > .hero-type {
+  margin-bottom: 18px;
+}
+
+[data-area="list-hero"] > div.row > .hero-type > .type-title {
+  margin-bottom: 12px;
+  background-color: antiquewhite;
+}
+
+[data-area="list-hero"] [data-type="icon"] {
+  cursor: pointer;
+}

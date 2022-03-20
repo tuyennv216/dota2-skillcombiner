@@ -1,0 +1,4 @@
+loadAutosave();
+renderUI();
+randomColors();
+startAutosave();

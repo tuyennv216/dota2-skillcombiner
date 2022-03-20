@@ -1,0 +1,19 @@
+{
+  "name": "skill_combiner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "pretty": "prettier --write \"./**/*.{js,json}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.0"
+  }
+}

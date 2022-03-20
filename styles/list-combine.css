@@ -1,0 +1,64 @@
+[data-area="list-combine"]
+  > [data-area="combine-container"]
+  > [data-area="combine-one"] {
+  margin-bottom: 18px;
+  border: 1px solid black;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+[data-area="list-combine"]
+  > [data-area="combine-container"]
+  > [data-area="combine-one"]
+  .combine-name {
+  width: 100%;
+  padding-left: 10px;
+  border: none;
+  background-color: lightgreen;
+}
+
+[data-area="list-combine"]
+  > [data-area="combine-container"]
+  > [data-area="combine-one"]
+  > [data-area="combine-skills"]
+  img {
+  width: 100%;
+}
+
+[data-area="list-combine"]
+  > [data-area="combine-container"]
+  > [data-area="combine-one"]
+  > [data-area="combine-skills"]
+  .img-wrapper {
+  position: relative;
+}
+
+[data-area="list-combine"]
+  > [data-area="combine-container"]
+  > [data-area="combine-one"]
+  > [data-area="combine-skills"]
+  .img-remover {
+  position: absolute;
+  top: -2px;
+  left: -20px;
+  cursor: pointer;
+}
+
+[data-area="list-combine"]
+  > [data-area="combine-container"]
+  > [data-area="combine-one"]
+  .combine-description {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-left: 1px solid #ccc;
+  resize: none;
+}
+
+[data-area="list-combine"] > [data-area="combine-new"] {
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  background-color: papayawhip;
+}
