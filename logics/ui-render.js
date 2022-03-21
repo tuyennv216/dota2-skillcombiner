@@ -97,28 +97,30 @@ function renderHeroes() {
     var element = document.createElement("div");
     element.classList.add("col-12", "row", "hero-type");
 
-    // create a title
-    var typeElement = document.createElement("div");
-    typeElement.classList.add("col-12", "type-title");
-    typeElement.innerText = type.name;
-    element.appendChild(typeElement);
+    if (type.heroes !== undefined) {
+      // create a title
+      var typeElement = document.createElement("div");
+      typeElement.classList.add("col-12", "type-title");
+      typeElement.innerText = type.name;
+      element.appendChild(typeElement);
 
-    // create icon list of this type
-    type.heroes.forEach((hero) => {
-      var iconWrapper = document.createElement("div");
-      iconWrapper.classList.add("p-0", "m-1", "icon-size-3");
-      iconWrapper.dataset.type = "icon";
+      // create icon list of this type
+      type.heroes.forEach((hero) => {
+        var iconWrapper = document.createElement("div");
+        iconWrapper.classList.add("p-0", "m-1", "icon-size-3");
+        iconWrapper.dataset.type = "icon";
 
-      var iconElement = document.createElement("img");
-      iconElement.src = "/images/" + hero.name + ".png";
-      iconElement.alt = hero.name_loc;
-      iconElement.dataset.id = hero.id;
-      iconElement.dataset.name = hero.name;
-      iconElement.onclick = (e) => onHeroClick(e);
+        var iconElement = document.createElement("img");
+        iconElement.src = "/images/" + hero.name + ".png";
+        iconElement.alt = hero.name_loc;
+        iconElement.dataset.id = hero.id;
+        iconElement.dataset.name = hero.name;
+        iconElement.onclick = (e) => onHeroClick(e);
 
-      iconWrapper.appendChild(iconElement);
-      element.appendChild(iconWrapper);
-    });
+        iconWrapper.appendChild(iconElement);
+        element.appendChild(iconWrapper);
+      });
+    }
 
     container.appendChild(element);
   });
