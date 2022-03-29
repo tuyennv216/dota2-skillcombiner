@@ -4,13 +4,13 @@ const classes = {
     "name": "Thuộc tính",
     "values": {
       "0": {
-        "name": "Sức mạnh"
+        "name": "Thông minh"
       },
       "1": {
         "name": "Nhanh nhẹn"
       },
       "2": {
-        "name": "Thông minh"
+        "name": "Sức mạnh"
       }
     }
   },
@@ -373,7 +373,7 @@ const classes = {
     }
   },
   "mp": {
-    "name": "Lượng máu",
+    "name": "Lượng mana",
     "values": {
       "0": {
         "name": "Rất thấp"

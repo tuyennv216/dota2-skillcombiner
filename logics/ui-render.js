@@ -60,27 +60,25 @@ function randomBorderColor(items) {
 
 function renderUI() {
   renderViewmodel();
-  renderClasses();
+  renderFilteres();
   renderHeroes();
 }
 
 // load classes
-function renderClasses() {
+function renderFilteres() {
   const container = $area("hero-classes")[0];
   container.replaceChildren();
 
+  updateFilterClasses();
+
   Object.keys(classes).forEach((className) => {
-    const element = document.createElement("div");
-    element.classList.add("col-3", "d-grid", "gap-2", "spec-one");
+    const link = document.createElement("a");
+    link.innerText = classes[className].name;
+    link.dataset.id = className;
+    link.classList.add("dropdown-item");
+    link.onclick = (e) => onClassClick(e);
 
-    const button = document.createElement("button");
-    button.innerText = classes[className].name;
-    button.dataset.id = className;
-    button.classList.add("btn", "btn-link");
-    button.onclick = (e) => onClassClick(e);
-
-    element.appendChild(button);
-    container.appendChild(element);
+    container.appendChild(link);
   });
 }
 
@@ -90,40 +88,45 @@ function renderHeroes() {
   container.replaceChildren();
 
   var activeClass = classes[activeClassId];
-  Object.keys(activeClass.values).forEach((valueId) => {
-    var type = activeClass.values[valueId];
+  Object.keys(activeClass.values)
+    .sort()
+    .reverse()
+    .forEach((valueId) => {
+      var type = activeClass.values[valueId];
 
-    // create a type wrapper
-    var element = document.createElement("div");
-    element.classList.add("col-12", "row", "hero-type");
+      // create a type wrapper
+      var element = document.createElement("div");
+      element.classList.add("col-12", "row", "hero-type");
 
-    if (type.heroes !== undefined) {
-      // create a title
-      var typeElement = document.createElement("div");
-      typeElement.classList.add("col-12", "type-title");
-      typeElement.innerText = type.name;
-      element.appendChild(typeElement);
+      if (type.heroes !== undefined) {
+        // create a title
+        var typeElement = document.createElement("div");
+        typeElement.classList.add("col-12", "type-title");
+        typeElement.innerText = type.name;
+        element.appendChild(typeElement);
 
-      // create icon list of this type
-      type.heroes.forEach((hero) => {
-        var iconWrapper = document.createElement("div");
-        iconWrapper.classList.add("p-0", "m-1", "icon-size-3");
-        iconWrapper.dataset.type = "icon";
+        // create icon list of this type
+        type.heroes.forEach((hero) => {
+          if (hero.name.toLocaleLowerCase().indexOf(uivariables.activeHeroName.toLowerCase()) !== -1) {
+            var iconWrapper = document.createElement("div");
+            iconWrapper.classList.add("p-0", "m-1", "icon-size-3");
+            iconWrapper.dataset.type = "icon";
 
-        var iconElement = document.createElement("img");
-        iconElement.src = "/images/" + hero.name + ".png";
-        iconElement.alt = hero.name_loc;
-        iconElement.dataset.id = hero.id;
-        iconElement.dataset.name = hero.name;
-        iconElement.onclick = (e) => onHeroClick(e);
+            var iconElement = document.createElement("img");
+            iconElement.src = "/images/" + hero.name + ".png";
+            iconElement.alt = hero.name_loc;
+            iconElement.dataset.id = hero.id;
+            iconElement.dataset.name = hero.name;
+            iconElement.onclick = (e) => onHeroClick(e);
 
-        iconWrapper.appendChild(iconElement);
-        element.appendChild(iconWrapper);
-      });
-    }
+            iconWrapper.appendChild(iconElement);
+            element.appendChild(iconWrapper);
+          }
+        });
+      }
 
-    container.appendChild(element);
-  });
+      container.appendChild(element);
+    });
 }
 
 // load hero skills

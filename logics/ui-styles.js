@@ -1,5 +1,5 @@
 function redrawHeight() {
-  var classesElement = $area("hero-classes")[0];
+  var classesElement = $area("hero-filter")[0];
   var classesStyles = window.getComputedStyle(classesElement);
   var classesHeight =
     classesElement.offsetHeight +

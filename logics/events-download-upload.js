@@ -15,7 +15,7 @@ function onDownloadClick(e) {
     "data:text/json;charset=utf-8," +
     encodeURIComponent(JSON.stringify(viewmodel));
 
-    var downloadName = "save_" + new Date().toISOString(); 
+  var downloadName = "save_" + new Date().toISOString();
   var downloadElement = document.createElement("a");
   downloadElement.setAttribute("href", dataStr);
   downloadElement.setAttribute("download", downloadName + ".json");

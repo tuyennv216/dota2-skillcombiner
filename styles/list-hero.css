@@ -23,3 +23,9 @@
 [data-area="list-hero"] [data-type="icon"] {
   cursor: pointer;
 }
+
+[data-area="hero-filter"] .btn.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

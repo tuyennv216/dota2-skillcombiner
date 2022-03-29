@@ -1,6 +1,7 @@
 var uivariables = {
   activeGroupIndex: -1,
   activeCombineIndex: -1,
+  activeHeroName: "",
   combines: {},
 };
 
@@ -11,6 +12,15 @@ Object.defineProperty(uivariables, "newGroup", {
   },
   set: function (value) {
     document.getElementById("txtNewGroup").value = value;
+  },
+});
+
+Object.defineProperty(uivariables, "activeHeroName", {
+  get: function () {
+    return document.getElementById("txtHeroName").value;
+  },
+  set: function (value) {
+    document.getElementById("txtHeroName").value = value;
   },
 });
 // end textbox new group
